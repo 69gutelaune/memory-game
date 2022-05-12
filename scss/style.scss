@@ -1,0 +1,240 @@
+@import "normalize";
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+$headfont: "Pacifico", cursive;
+$mainfont: "BIZ UDGothic", sans-serif;
+$btn-color: #1abc9c;
+$btn-color-2: #1aa1bc;
+$dark-gray: rgb(23, 23, 23);
+
+.border {
+  border: 2px dotted $btn-color;
+}
+
+body {
+  font-family: $mainfont;
+  background-color: $dark-gray;
+}
+
+// Container of all
+#memmory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  // Die Rückkehr der Klon Katzen
+  .jumbo {
+    font-family: $headfont;
+    color: $btn-color;
+    text-align: center;
+    letter-spacing: 0.15rem;
+    font-size: 2.5rem;
+    width: 100vw;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: rgb(171, 171, 171);
+    text-align: center;
+    width: 100vw;
+  }
+
+  .new-player-section {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      text-align: center;
+      color: white;
+      background: 0;
+      border: 0;
+      outline: none;
+      width: 200px;
+      font-size: 1.2rem;
+      transition: padding 0.3s 0.2s ease;
+
+      &:focus {
+        padding-bottom: 5px;
+      }
+      // sibling magic ;o
+      &:focus + .line {
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+    .field {
+      position: relative;
+
+      .line {
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: -8px;
+        background: #bdc3c7;
+
+        &:after {
+          content: " ";
+          position: absolute;
+          float: right;
+          width: 100%;
+          height: 3px;
+
+          transform: scalex(0);
+          transition: transform 0.3s ease;
+
+          background: #1abc9c;
+        }
+      }
+    }
+  }
+}
+// active players
+#players-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 0px, 20px;
+  width: 100%;
+
+  .player-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #player-1,
+  #player-2,
+  #player-3 {
+    text-align: center;
+    width: 100%;
+    color: white;
+    margin: 10px, 30px;
+    h2 {
+      font-size: 1.2rem;
+      color: $btn-color;
+    }
+    h3 {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.funky-button {
+  font-family: $headfont;
+  text-transform: none;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  // margin: 20px;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 200;
+  &:hover {
+    color: $btn-color;
+    outline: 0;
+    border-color: $btn-color;
+    transition: all 150ms ease-in-out;
+    box-shadow: 0 0 5px 0 $btn-color inset, 0 0 5px 2px $btn-color;
+  }
+  &:active {
+    color: $btn-color-2;
+    border-color: $btn-color-2;
+    background-color: rgb(20, 20, 20);
+  }
+}
+
+.small-btn {
+  font-family: $mainfont;
+  font-size: 0.8rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.xs-btn {
+  font-family: $mainfont;
+  font-size: 0.75rem;
+  padding: 0.4rem 1rem;
+  &:hover {
+    box-shadow: 0 0 2px 0 $btn-color inset, 0 0 2px 2px $btn-color;
+  }
+  &:active {
+    color: $btn-color-2;
+    border-color: $btn-color-2;
+    background-color: rgb(20, 20, 20);
+  }
+}
+.big-btn {
+  font-size: 1.8rem;
+}
+
+#memory-btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// CARDS AND IMAGES
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: rgb(24, 24, 24);
+  width: 480px;
+  height: 480px;
+  .card {
+    background-image: url("/imgs/back-side.png");
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+  }
+  .img1 {
+    background-image: url("/imgs/pic1.jpg");
+  }
+  .img2 {
+    background-image: url("/imgs/pic2.jpg");
+  }
+  .img3 {
+    background-image: url("/imgs/pic3.jpg");
+  }
+  .img4 {
+    background-image: url("/imgs/pic4.png");
+  }
+  .img5 {
+    background-image: url("/imgs/pic5.jpg");
+  }
+  .img6 {
+    background-image: url("/imgs/pic6.jpg");
+  }
+  .img7 {
+    background-image: url("/imgs/pic7.png");
+  }
+  .img8 {
+    background-image: url("/imgs/pic8.png");
+  }
+  .default-cat {
+    background-image: url("/imgs/back-side.png");
+  }
+}
