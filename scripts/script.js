@@ -1,14 +1,4 @@
-// Make a border around a clicked card
-
-// Make a possibility to create up to 3 different accounts:
-// Make a clickable h2 with a hover effect for the names
-// Clicked Name is bigger and has a different color
-
-// make a list with necesairy moves of 3 last attempts
-// make a list with necesairy moves of 3 BEST attempts
-
-// under the name of each created player there will be a "best time"
-
+import { playSound } from "../lib/sound";
 // ADD AND REMOVE PLAYER
 // ---------------------------------------------
 // ---------------------------------------------
@@ -80,7 +70,7 @@ removePlayer3Btn.addEventListener("click", () => {
 // FUNCTIONS
 function addPlayer(name) {
   if (playerNr === 3) {
-    return alert(`to many players, please deleate one`);
+    return alert(`too many players, please deleate one`);
   }
   if (name == "") {
     return alert(`please enter a Name`);
@@ -248,7 +238,7 @@ let loaded = false;
 let shuffledCards = [];
 let openCards = 0;
 let previousCard = "";
-let necesairySteps = 0;
+let neccessarySteps = 0;
 
 // TIMER
 let time = "";
@@ -282,7 +272,7 @@ function countUpTimer() {
 
 function resetVariables() {
   time = "";
-  necesairySteps = 0;
+  neccessarySteps = 0;
   firstBlood = true;
   rightCards = 0;
   rightInRow = 0;
@@ -364,30 +354,6 @@ function showBackside() {
   }
 }
 
-const firstBloodSound = new Audio("/sounds/kill-sounds/first_blood.mp3");
-const megaKillSound = new Audio("/sounds/kill-sounds/mega_kill.mp3");
-const monsterKillSound = new Audio("/sounds/kill-sounds/monster_kill.mp3");
-const miauSound = new Audio("/sounds/kill-sounds/miau.m4a");
-
-function playSound(nr) {
-  switch (nr) {
-    // kill sounds
-    case 2:
-      megaKillSound.play();
-      break;
-    case 3:
-      monsterKillSound.play();
-      break;
-    // other sounds
-    case "miau":
-      miauSound.play();
-      break;
-    case "firstBlood":
-      firstBloodSound.play();
-      break;
-  }
-}
-
 // OPEN AND COMPARE!
 openCards = 0;
 let firstCard = "";
@@ -400,7 +366,7 @@ let firstBlood = true;
 
 function compare() {
   // did I click the same card twice?
-  necesairySteps++;
+  neccessarySteps++;
 
   let isPreviousCard = false;
   if (loaded === true && isPreviousCard === false && openCards == 0) {
@@ -442,8 +408,8 @@ function compare() {
 
 function youWin() {
   let timeInMinutes = convertToMinutes(totalSeconds);
-  alert(`you opened ${necesairySteps} cards, and needed ${timeInMinutes}`);
-  assignToObject(necesairySteps, totalSeconds);
+  alert(`you opened ${neccessarySteps} cards, and needed ${timeInMinutes}`);
+  assignToObject(neccessarySteps, totalSeconds);
   resetVariables();
 }
 
